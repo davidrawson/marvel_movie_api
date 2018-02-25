@@ -13,11 +13,15 @@ const app = function(){
 
   makeRequest(url, requestComplete);
 
+//Movie selector
   const movieSelector = document.getElementById('movie-picker');
   movieSelector.addEventListener('change', pickMovie);
   populateDropdown(movieSelector);
 
 //Chart
+  const chartButton = document.getElementById('chart-button');
+  chartButton.addEventListener('click', displayChart);
+
   const chartName = "Marvel Studios: Gross Earnings per Movie";
   const grosses = [];
   const names = [];
@@ -29,6 +33,8 @@ const app = function(){
   new GrossChart(chartName, grosses, names);
 
 }
+
+
 //Movie picker dropdown
 const populateDropdown = function(parent){
   movies.forEach(function(movie){
@@ -60,14 +66,14 @@ const requestComplete = function(){
   const movieArray = JSON.parse(jsonString);
   console.log(movieArray);
   localStorage.setItem('Movie API', movieArray);
-  // return movieArray;
   displayMovie(movieArray);
 }
+
 
 //Display results:
 const displayMovie = function(array){
   postImage('poster', array.Poster, array.Title)
-  postTextItem('movie-title', 'p', array.Title);
+  postTextItem('movie-title', 'h3', array.Title);
   postTextItem('attributes', 'li', "Director: " + array.Director);
   postTextItem('attributes', 'li', "Genre: " + array.Genre);
   postTextItem('attributes', 'li', "Rating: " + array.Rated);
@@ -94,6 +100,23 @@ const postTextItem = function(parent, type, text){
 
 const appendItems = function(parent, child){
   parent.appendChild(child);
+}
+
+
+//Chart display button handling:
+const displayChart = function(){
+  const button = document.getElementById('chart-button')
+  const chartDiv = document.querySelector('#gross-chart');
+  const style = window.getComputedStyle(chartDiv);
+  const display = style.getPropertyValue('display');
+
+  if(display === "none"){
+    chartDiv.style.display = "block";
+    button.innerText = "Hide"
+  } else {
+    chartDiv.style.display = "none";
+    button.innerText = "View Earnings by Movie"
+  }
 }
 
 document.addEventListener('DOMContentLoaded', app);

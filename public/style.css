@@ -1,0 +1,53 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Avenir";
+}
+
+h1 {
+  font-size: 3em;
+  width: max-content;
+  border-top: 1px #FFFFFF solid;
+  border-bottom: 1px #FFFFFF solid;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+#marvel {
+  background-color: #ff1111;
+  font-family: "Avenir Next Condensed";
+  padding: 5px;
+}
+
+#movie-picker {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+#chart-button {
+  margin-left: 20px;
+}
+
+table {
+  width: 70%;
+  padding-bottom: 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  border: 1px #ff1111 solid;
+
+}
+
+td {
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+#gross-chart {
+  margin: auto;
+  display: none;
+}

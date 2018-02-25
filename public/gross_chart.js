@@ -3,6 +3,17 @@ const GrossChart = function(name, data, categories){
   const container = document.querySelector('#gross-chart');
   const chart = new Highcharts.Chart({
   chart: {
+    backgroundColor: "black",
+    // color: "white",
+    style: {
+      fontFamily: "Avenir",
+      color: "white"
+    },
+    legend: {
+      style: {
+        color: "white"
+      }
+    },
     type: 'column',
     renderTo: container
   },
@@ -10,15 +21,16 @@ const GrossChart = function(name, data, categories){
     text: name
   },
   series: [{
-    // name: "Not Sure of the name yet",
+    name: "Earnings ($)",
     data: data,
-    // color: "lime"
+    color: "#ff1111"
   }],
   xAxis: {
     categories: categories
   },
   yAxis: {
-    title: {text: "Earnings in $"}
+    title: "Earnings"
+    // {text: "Earnings in $"}
   }
 });
 }
