@@ -17,6 +17,17 @@ const app = function(){
   movieSelector.addEventListener('change', pickMovie);
   populateDropdown(movieSelector);
 
+//Chart
+  const chartName = "Marvel Studios: Gross Earnings per Movie";
+  const grosses = [];
+  const names = [];
+  movies.forEach(function(movie){
+    grosses.push(movie.gross);
+    names.push(movie.name);
+  })
+
+  new GrossChart(chartName, grosses, names);
+
 }
 //Movie picker dropdown
 const populateDropdown = function(parent){
@@ -58,10 +69,10 @@ const displayMovie = function(array){
   postImage('poster', array.Poster, array.Title)
   postTextItem('movie-title', 'p', array.Title);
   postTextItem('attributes', 'li', "Director: " + array.Director);
-  postTextItem('attributes', 'li', "Genre" + array.Genre);
+  postTextItem('attributes', 'li', "Genre: " + array.Genre);
   postTextItem('attributes', 'li', "Rating: " + array.Rated);
   postTextItem('attributes', 'li', "Box Office: " + array.BoxOffice);
-  postTextItem('attributes', 'li', "MetaScore: " + array.Metascore);
+  postTextItem('attributes', 'li', "MetaScore: " + array.Metascore +"/100");
   postTextItem('cast', 'p', "Cast: " + array.Actors)
   postTextItem('plot', 'p', array.Plot);
 }
