@@ -1,5 +1,8 @@
 body {
   background-color: black;
+  background-image: url(Marvel-Wallpaper.jpg);
+  background-size: cover;
+  background-attachment: fixed;
   color: white;
   font-family: "Avenir";
 }
@@ -33,14 +36,23 @@ table {
   padding-bottom: 0;
   margin-left: 20px;
   margin-bottom: 20px;
-  background-color: #1c1c1c;
+  background-color: rgba(28,28,28, 0.8);
   border-radius: 15px;
   border: 1px #ff1111 solid;
-
 }
 
 td {
   padding: 10px;
+}
+
+h3 {
+  border-bottom: 1px #6b6b6b solid;
+  padding-bottom: 10px;
+}
+
+p {
+  border-top: 1px #6b6b6b solid;
+  padding-top: 10px;
 }
 
 ul {
@@ -48,6 +60,9 @@ ul {
 }
 
 #gross-chart {
-  margin: auto;
+  background-color: "black";
+  margin: 20px;
+  border: 1px #ff1111 solid;
+  border-radius: 15px;
   display: none;
 }

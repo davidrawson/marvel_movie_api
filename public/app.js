@@ -9,7 +9,7 @@ const app = function(){
   } else {
     movieId = lastMovieId;
   }
-  const url = " http://www.omdbapi.com/?i=" + movieId + "&apikey=" + API_KEY;
+  const url = "http://www.omdbapi.com/?i=" + movieId + "&apikey=" + API_KEY;
 
   makeRequest(url, requestComplete);
 
@@ -74,6 +74,7 @@ const requestComplete = function(){
 const displayMovie = function(array){
   postImage('poster', array.Poster, array.Title)
   postTextItem('movie-title', 'h3', array.Title);
+  postTextItem('attributes', 'li', "Released: " + array.Released);
   postTextItem('attributes', 'li', "Director: " + array.Director);
   postTextItem('attributes', 'li', "Genre: " + array.Genre);
   postTextItem('attributes', 'li', "Rating: " + array.Rated);
@@ -112,7 +113,7 @@ const displayChart = function(){
 
   if(display === "none"){
     chartDiv.style.display = "block";
-    button.innerText = "Hide"
+    button.innerText = "Hide Earnings"
   } else {
     chartDiv.style.display = "none";
     button.innerText = "View Earnings by Movie"
