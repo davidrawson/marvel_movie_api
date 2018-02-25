@@ -17,8 +17,6 @@ const app = function(){
   movieSelector.addEventListener('change', pickMovie);
   populateDropdown(movieSelector);
 
-
-
 }
 //Movie picker dropdown
 const populateDropdown = function(parent){
@@ -33,7 +31,7 @@ const populateDropdown = function(parent){
 const pickMovie = function(){
   movieId = this.value;
   localStorage.setItem('last movie', this.value)
-  // document.location.reload(false);
+  document.location.reload(false);
 }
 
 
@@ -51,15 +49,40 @@ const requestComplete = function(){
   const movieArray = JSON.parse(jsonString);
   console.log(movieArray);
   localStorage.setItem('Movie API', movieArray);
-  return movieArray;
+  // return movieArray;
+  displayMovie(movieArray);
 }
 
 //Display results:
+const displayMovie = function(array){
+  postImage('poster', array.Poster, array.Title)
+  postTextItem('movie-title', 'p', array.Title);
+  postTextItem('attributes', 'li', "Director: " + array.Director);
+  postTextItem('attributes', 'li', "Genre" + array.Genre);
+  postTextItem('attributes', 'li', "Rating: " + array.Rated);
+  postTextItem('attributes', 'li', "Box Office: " + array.BoxOffice);
+  postTextItem('attributes', 'li', "MetaScore: " + array.Metascore);
+  postTextItem('cast', 'p', "Cast: " + array.Actors)
+  postTextItem('plot', 'p', array.Plot);
+}
 
+const postImage = function(parent, src, alt){
+  const targetParent = document.getElementById(parent);
+  const image = document.createElement('img');
+  image.src = src;
+  image.alt = alt;
+  appendItems(targetParent, image);
+}
 
-//Movie picker:
-//Use movieNames to populate programmatically
+const postTextItem = function(parent, type, text){
+  const targetParent = document.getElementById(parent);
+  const child = document.createElement(type)
+  child.innerText = text
+  appendItems(targetParent, child);
+}
 
-//movieId = result of whichever option is picked
+const appendItems = function(parent, child){
+  parent.appendChild(child);
+}
 
 document.addEventListener('DOMContentLoaded', app);

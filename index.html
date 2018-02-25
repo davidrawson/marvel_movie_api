@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MMDb</title>
-    <script src='app.js'></script>
-    <script src='api_key.js'></script>
-    <script src='movienames.js'></script>
-  </head>
-  <body>
-    <select id="movie-picker">
-      <option selected disabled>Pick a movie:</option>
-    </select>
-  </body>
+<head>
+  <title>MMMMDb</title>
+  <script src='app.js'></script>
+  <script src='api_key.js'></script>
+  <script src='movienames.js'></script>
+</head>
+<body>
+<header>
+  <h1>Marky's Marvel Movie MiniDB</h1>
+</header>
+  <select id="movie-picker">
+    <option selected disabled>Pick a movie:</option>
+  </select>
+  <section>
+    <table>
+      <tr>
+        <td rowspan="6" id="poster"></td><td id="movie-title"></td>
+      </tr>
+      <tr>
+        <td>
+          <ul id="attributes">
+
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td id="cast"></td>
+      </tr>
+      <tr>
+        <td id="plot"></td>
+      </tr>
+    </table>
+  </section>
+</body>
 </html>
